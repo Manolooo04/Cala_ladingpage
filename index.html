@@ -277,6 +277,20 @@
   }
   .field input::placeholder,.field textarea::placeholder{color:var(--slate);}
   .field input:focus,.field textarea:focus{outline:2px solid var(--steel);outline-offset:1px;}
+  .privacy-consent{display:flex;align-items:flex-start;gap:12px;margin:20px 0 24px;color:var(--ink-soft);font-size:14px;line-height:1.5;}
+  .privacy-consent input{flex:0 0 19px;width:19px;height:19px;margin:2px 0 0;accent-color:var(--steel);cursor:pointer;}
+  .privacy-consent label{cursor:pointer;}
+  .privacy-consent a{color:var(--steel);text-decoration:underline;text-underline-offset:3px;}
+  .cookie-banner{position:fixed;right:20px;bottom:20px;left:20px;z-index:80;display:flex;align-items:center;justify-content:space-between;gap:24px;max-width:1180px;margin:0 auto;padding:20px 24px;background:rgba(13,21,38,.98);border:1px solid var(--line-on-navy);border-radius:var(--radius);box-shadow:0 16px 48px rgba(0,0,0,.4);}
+  .cookie-banner[hidden]{display:none;}
+  .cookie-banner p{margin:0;color:var(--ink-soft);font-size:14px;line-height:1.55;}
+  .cookie-banner-actions{display:flex;flex:0 0 auto;gap:10px;}
+  .cookie-banner-actions .btn{white-space:nowrap;}
+  .cookie-reject{background:transparent;color:var(--ink);border-color:var(--line-on-navy);}
+  .cookie-reject:hover{background:var(--navy-panel);border-color:var(--steel);color:var(--ink);}
+  .cookie-banner-status{display:block;margin-top:6px;color:#fca5a5;font-size:12px;}
+  @media (max-width:760px){.cookie-banner{align-items:stretch;flex-direction:column;gap:14px;padding:18px;}.cookie-banner-actions{flex-wrap:wrap;}.cookie-banner-actions .btn{flex:1;justify-content:center;}}
+  @media (max-width:420px){.cookie-banner{right:12px;bottom:12px;left:12px;}.cookie-banner-actions{flex-direction:column;}}
   .info-card{background:var(--graphite-panel);border:1px solid var(--line-on-graphite);padding:30px;border-radius:var(--radius);}
   .info-row{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line-on-graphite);}
   .info-row:last-of-type{border-bottom:none;}
@@ -292,6 +306,57 @@
   .info-row:hover{background:rgba(142,207,255,0.05);padding-left:8px;}
   .info-row:hover .k{color:var(--celeste);}
 
+  /* PRIVACY POLICY VIEW */
+  .privacy-page{display:none;position:fixed;inset:0;z-index:200;overflow-y:auto;background:var(--navy);color:var(--ink);}
+  .privacy-page.open{display:block;}
+  .privacy-page a{color:var(--steel);}
+  .privacy-page .legal-header{position:sticky;top:0;z-index:5;background:rgba(10,15,26,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-on-navy);}
+  .legal-nav{max-width:1180px;min-height:76px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;}
+  .legal-logo{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;}
+  .legal-logo svg{width:28px;height:28px;}
+  .legal-logo span{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;letter-spacing:.01em;}
+  .privacy-back{padding:0;border:0;background:none;color:var(--ink-soft);font:500 14px 'Inter',sans-serif;cursor:pointer;}
+  .privacy-back:hover{color:var(--ink);}
+  .privacy-main{width:min(840px,calc(100% - 40px));margin:0 auto;padding:76px 0 80px;}
+  .privacy-eyebrow{display:flex;align-items:center;gap:10px;color:var(--steel);font:600 12.5px 'Space Grotesk',sans-serif;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px;}
+  .privacy-eyebrow::before{content:"";width:22px;height:1px;background:var(--steel);}
+  .privacy-main h1,.privacy-main h2{font-family:'Space Grotesk',sans-serif;color:var(--ink);letter-spacing:-.01em;}
+  .privacy-main h1{font-size:clamp(36px,6vw,48px);line-height:1.12;margin:0;}
+  .privacy-updated{color:var(--ink-soft);margin:14px 0 42px;font-size:15px;}
+  .privacy-intro{font-size:18px;line-height:1.62;margin:0 0 22px;}
+  .privacy-toc{padding:22px 28px;margin:0 0 42px;background:var(--navy-panel);border:1px solid var(--line-on-navy);border-radius:var(--radius);}
+  .privacy-toc ol{display:grid;grid-template-rows:repeat(6,auto);grid-auto-flow:column;grid-auto-columns:1fr;gap:6px 28px;margin:0;padding-left:22px;}
+  .privacy-toc li{padding:2px 0 2px 2px;color:var(--ink-soft);font-size:14px;}
+  .privacy-toc a{text-decoration:none;}
+  .privacy-toc a:hover{text-decoration:underline;text-underline-offset:3px;}
+  .privacy-section{padding:0 0 30px;margin:0 0 30px;border-bottom:1px solid var(--line-on-navy);scroll-margin-top:100px;}
+  .privacy-section h2{font-size:22px;line-height:1.3;margin:0 0 16px;}
+  .privacy-section p,.privacy-section li{color:var(--ink-soft);font-size:16px;line-height:1.7;}
+  .privacy-section p{margin:0 0 12px;}
+  .privacy-section ul{padding-left:24px;margin:8px 0 16px;}
+  .privacy-section li{padding-left:3px;margin:4px 0;}
+  .privacy-section strong{color:var(--ink);}
+  .privacy-responsible{padding:22px 26px;margin:0 0 18px;background:var(--navy-panel);border:1px solid var(--line-on-navy);border-radius:var(--radius);}
+  .privacy-responsible p{margin:0 0 7px;}
+  .privacy-responsible p:last-child{margin-bottom:0;}
+  .privacy-data{width:100%;border-collapse:collapse;margin:10px 0 16px;font-size:14px;}
+  .privacy-data th,.privacy-data td{padding:12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line-on-navy);}
+  .privacy-data th{color:var(--steel);font:600 11px 'Space Grotesk',sans-serif;letter-spacing:.08em;text-transform:uppercase;}
+  .privacy-data td{color:var(--ink-soft);}
+  .privacy-footer{background:var(--navy-deep);border-top:1px solid var(--line-on-navy);padding:28px 20px;text-align:center;color:var(--slate);font-size:13px;}
+  @media (max-width:640px){
+    .legal-nav{min-height:68px;padding:14px 20px;}
+    .privacy-main{width:calc(100% - 40px);padding:52px 0 60px;}
+    .privacy-intro{font-size:16px;}
+    .privacy-toc{padding:18px 20px;}
+    .privacy-toc ol{display:block;}
+    .privacy-section h2{font-size:20px;}
+    .privacy-section p,.privacy-section li{font-size:15px;}
+    .privacy-responsible{padding:18px;}
+    .privacy-data{font-size:12px;}
+    .privacy-data th,.privacy-data td{padding:8px 6px;}
+  }
+
   /* AYUDA WALLET */
   .wallet-help{background:radial-gradient(ellipse 800px 500px at 100% 10%, rgba(142,207,255,0.11), transparent 60%), var(--navy-deep);}
   .wallet-help-head{max-width:680px;margin-bottom:38px;}
@@ -303,12 +368,24 @@
   .wallet-tab[aria-selected="true"]{color:var(--celeste);border-bottom-color:var(--celeste);}
   .wallet-panel{display:grid;grid-template-columns:0.85fr 1.15fr;gap:24px;align-items:start;}
   @media (max-width:760px){.wallet-panel{grid-template-columns:1fr;}}
+  .wallet-panel.fitelyback-active{grid-template-columns:1fr;}
+  .fitelyback-active .faq-col{display:none;}
+  .fitelyback-panel>p{max-width:76ch;}
+  .fitelyback-features{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;}
+  .fitelyback-feature{padding:18px;background:rgba(255,255,255,0.035);border:1px solid var(--line-on-navy);border-radius:var(--radius);}
+  .fitelyback-feature h4{font:600 16px 'Space Grotesk',sans-serif;color:var(--ink);margin:0 0 8px;}
+  .fitelyback-feature p{color:var(--ink-soft);font-size:13.5px;line-height:1.6;margin:0;}
+  @media (max-width:900px){.fitelyback-features{grid-template-columns:repeat(2,minmax(0,1fr));}}
+  @media (max-width:560px){.fitelyback-features{grid-template-columns:1fr;}}
 
   /* left column: dynamic step guide */
   .wallet-steps-col{position:relative;}
   .wallet-step-panel{background:var(--navy-panel);border:1px solid var(--line-on-navy);border-radius:var(--radius);padding:28px;animation:stepFadeIn .35s ease;}
   @keyframes stepFadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
   .wallet-icon{width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--celeste);color:var(--celeste);border-radius:50%;font:700 20px 'Space Grotesk',sans-serif;margin-bottom:20px;}
+  .wallet-icon img{width:36px;height:36px;object-fit:contain;}
+  .wallet-icon.fitelyback-icon{background:var(--white);border-color:var(--white);}
+  .wallet-icon.fitelyback-icon img{width:36px;height:36px;}
   .wallet-step-panel h3{font-size:23px;}
   .wallet-step-panel>p{color:var(--ink-soft);font-size:14px;margin:12px 0 22px;}
   .wallet-steps{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:item;}
@@ -520,18 +597,19 @@
     <div class="wallet-help-head">
       <div class="eyebrow">Programa de Fidelización</div>
       <h2>FitelyBack, tu tarjeta digital siempre con tus clientes.</h2>
-      <p>Guárdala en Apple Wallet o Google Wallet al escanear el QR en tienda. Acumula estampillas con cada compra y recibe tus confirmaciones y premios automáticamente por WhatsApp.</p>
+      <p>FitelyBack es una plataforma de fidelización para negocios. Tus clientes guardan sus tarjetas digitales en Apple Wallet o Google Wallet al escanear el QR en tienda, acumulan estampillas con cada compra y reciben confirmaciones y premios automáticamente por WhatsApp.</p>
     </div>
-    <div class="wallet-tabs" role="tablist" aria-label="Elige tu billetera digital">
+    <div class="wallet-tabs" role="tablist" aria-label="Explora FitelyBack y sus herramientas">
       <button class="wallet-tab" role="tab" aria-selected="true" aria-controls="apple-steps" id="apple-tab">Apple Wallet</button>
       <button class="wallet-tab" role="tab" aria-selected="false" aria-controls="google-steps" id="google-tab">Google Wallet</button>
       <button class="wallet-tab" role="tab" aria-selected="false" aria-controls="whatsapp-steps" id="whatsapp-tab">Mensajes de WhatsApp</button>
+      <button class="wallet-tab" role="tab" aria-selected="false" aria-controls="fitelyback-steps" id="fitelyback-tab">FitelyBack</button>
     </div>
 
     <div class="wallet-panel">
       <div class="wallet-steps-col">
         <div class="wallet-step-panel" id="apple-steps" role="tabpanel" aria-labelledby="apple-tab">
-          <div class="wallet-icon" aria-hidden="true">A</div>
+          <div class="wallet-icon" aria-hidden="true"><img src="images/icon-apple-wallet.png" alt=""></div>
           <h3>Apple Wallet</h3>
           <p>Para iPhone y Apple Watch. La tarjeta queda disponible desde la app Wallet.</p>
           <ol class="wallet-steps">
@@ -541,7 +619,7 @@
           </ol>
         </div>
         <div class="wallet-step-panel" id="google-steps" role="tabpanel" aria-labelledby="google-tab" hidden>
-          <div class="wallet-icon" aria-hidden="true">G</div>
+          <div class="wallet-icon" aria-hidden="true"><img src="images/icon-google-wallet.png" alt=""></div>
           <h3>Google Wallet</h3>
           <p>Para teléfonos Android. La tarjeta queda disponible desde la app Google Wallet.</p>
           <ol class="wallet-steps">
@@ -551,13 +629,56 @@
           </ol>
         </div>
         <div class="wallet-step-panel" id="whatsapp-steps" role="tabpanel" aria-labelledby="whatsapp-tab" hidden>
-          <div class="wallet-icon" aria-hidden="true">W</div>
+          <div class="wallet-icon" aria-hidden="true"><img src="images/icon-whatsapp.png" alt=""></div>
           <h3>Mensajes de WhatsApp</h3>
           <p>Al guardar tu tarjeta se activa automáticamente el canal oficial de WhatsApp de CALA.</p>
           <div class="wa-visual">
             <span class="wa-visual-badge">Canal oficial activado</span>
             <div class="wa-notif"><span class="dot"></span><span><b>Notificaciones en tiempo real</b> tras cada compra: estampillas acumuladas, canjes disponibles, premios y recordatorios.</span></div>
             <div class="wa-notif"><span class="dot"></span><span>No necesitas escribir ni guardar un contacto: los mensajes llegan solos desde el número oficial de CALA.</span></div>
+          </div>
+        </div>
+        <div class="wallet-step-panel fitelyback-panel" id="fitelyback-steps" role="tabpanel" aria-labelledby="fitelyback-tab" hidden>
+          <div class="wallet-icon fitelyback-icon" aria-hidden="true"><img src="images/icon-fitelyback.png" alt=""></div>
+          <h3>Conoce FitelyBack</h3>
+          <p>Una plataforma de fidelización para administrar tu programa, entender tus resultados y mantener a tus clientes cerca de tu negocio.</p>
+          <div class="fitelyback-features">
+            <article class="fitelyback-feature">
+              <h4>Parámetros</h4>
+              <p>Tu panel de control y resultados. Consulta en tiempo real visitas, clientes recurrentes, ventas estimadas e impacto económico del programa, con filtros por local y fechas.</p>
+            </article>
+            <article class="fitelyback-feature">
+              <h4>Tarjetas</h4>
+              <p>Diseña y gestiona tarjetas de sellos por compra, niveles VIP o regalos. Tus clientes las guardan en Apple Wallet o Google Wallet sin descargar otra aplicación.</p>
+            </article>
+            <article class="fitelyback-feature">
+              <h4>Clientes</h4>
+              <p>Busca clientes por nombre o teléfono y consulta sus visitas y sellos acumulados. Ajusta puntos manualmente y exporta la lista a Excel con un clic.</p>
+            </article>
+            <article class="fitelyback-feature">
+              <h4>Equipo</h4>
+              <p>Administra personal y cajeros, asigna cada trabajador a una tienda y configura un PIN de acceso rápido para escanear tarjetas y entregar sellos de forma segura y controlada.</p>
+            </article>
+            <article class="fitelyback-feature">
+              <h4>Geolocalización</h4>
+              <p>Detecta cuándo los clientes están cerca de tu negocio —por ejemplo, a 150 metros— y envíales una notificación automática para invitarlos a pasar.</p>
+            </article>
+            <article class="fitelyback-feature">
+              <h4>WhatsApp</h4>
+              <p>Automatiza el envío de tarjetas al registrarse, avisos de nuevos sellos o premios, felicitaciones de cumpleaños e invitaciones para clientes que llevan tiempo sin volver.</p>
+            </article>
+            <article class="fitelyback-feature">
+              <h4>Historial (Reseñas y Atención)</h4>
+              <p>Después de una visita, una calificación de 4 o 5 estrellas invita a dejar una reseña pública en Google Maps. Una calificación de 1 a 3 llega a un buzón privado para contactar al cliente y resolver el problema.</p>
+            </article>
+            <article class="fitelyback-feature">
+              <h4>Funciones</h4>
+              <p>Consulta una guía interactiva con tutoriales sencillos, paso a paso, para que tú y tu equipo aprendan a usar cada herramienta.</p>
+            </article>
+            <article class="fitelyback-feature">
+              <h4>Configuración</h4>
+              <p>Personaliza los colores y logos de tu marca, agrega o edita sucursales, administra los accesos de seguridad y consulta tu plan de suscripción.</p>
+            </article>
           </div>
         </div>
       </div>
@@ -638,6 +759,10 @@
         <div class="field"><label for="nombre">Nombre</label><input id="nombre" name="nombre" type="text" placeholder="Tu nombre completo" required></div>
         <div class="field"><label for="correo">Correo</label><input id="correo" name="correo" type="email" placeholder="tucorreo@ejemplo.com" required></div>
         <div class="field"><label for="mensaje">Mensaje</label><textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos en qué podemos ayudarte" required></textarea></div>
+        <div class="privacy-consent">
+          <input id="privacyConsent" name="privacyConsent" type="checkbox" value="accepted" required>
+          <label for="privacyConsent">He leído y acepto la <a href="#privacy-page" data-open-privacy>Política de Privacidad</a> y autorizo el tratamiento de mis datos personales para responder a mi mensaje.</label>
+        </div>
         <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
         <input type="hidden" name="_subject" value="Nuevo mensaje desde CALA - Contacto">
         <input type="hidden" name="_captcha" value="false">
@@ -663,10 +788,163 @@
 
 <footer>
   <div class="wrap footer-row">
-    <span>© 2026 Cala Negocios e Inversiones SAC. Todos los derechos reservados.</span>
-    <span><a href="#" class="line-link">Políticas de privacidad</a></span>
+    <span>© 2026 Cala Negocios e Inversiones SAC · RUC 20611621133 · Lima, Perú</span>
+    <span><a href="#privacy-page" class="line-link" data-open-privacy>Políticas de privacidad</a></span>
   </div>
 </footer>
+
+<aside class="cookie-banner" id="cookieBanner" aria-label="Preferencias de cookies">
+  <div>
+    <p>Este sitio no utiliza cookies de publicidad ni de seguimiento. Guardaremos tu elección en este navegador para no volver a mostrar este aviso.</p>
+    <span class="cookie-banner-status" id="cookieBannerStatus" role="status" aria-live="polite"></span>
+  </div>
+  <div class="cookie-banner-actions">
+    <button class="btn" type="button" data-cookie-choice="accepted">Aceptar todas las cookies</button>
+    <button class="btn cookie-reject" type="button" data-cookie-choice="rejected">Rechazar cookies</button>
+  </div>
+</aside>
+
+<div class="privacy-page" id="privacy-page" aria-labelledby="privacyTitle" aria-hidden="true">
+  <header class="legal-header">
+    <div class="legal-nav">
+      <a href="#" class="legal-logo" aria-label="CALA, volver al inicio" data-close-privacy>
+        <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <polygon points="10,10 30,18 30,50 10,42" fill="#16294a"/>
+          <polygon points="27,32 42,38 42,58 27,52" fill="#f2f2f3"/>
+          <polygon points="35,14 50,20 50,42 35,36" fill="#f2f2f3"/>
+        </svg>
+        <span>CALA</span>
+      </a>
+      <button class="privacy-back" type="button" data-close-privacy>← Volver al inicio</button>
+    </div>
+  </header>
+
+  <main class="privacy-main">
+    <div class="privacy-eyebrow">Legal</div>
+    <h1 id="privacyTitle">Política de Privacidad</h1>
+    <p class="privacy-updated">Última actualización: 22 de octubre de 2026</p>
+    <p class="privacy-intro">En Cala Negocios e Inversiones S.A.C. nosotros respetamos tu privacidad. Esta política explica qué datos personales recopilamos a través de nuestro sitio web, de las tarjetas digitales de fidelización en Apple Wallet y Google Wallet en nuestros canales de WhatsApp, para qué los usamos y cómo puedes ejercer tus derechos, conforme a la <strong>Ley N.° 29733, Ley de Protección de Datos Personales</strong>, y su Reglamento aprobado por el <strong>Decreto Supremo N.° 016-2024-JUS</strong>.</p>
+
+    <nav class="privacy-toc" aria-label="Contenido de la política de privacidad">
+      <ol>
+        <li><a href="#privacy-responsable">Responsable del tratamiento</a></li>
+        <li><a href="#privacy-datos">Datos que recopilamos</a></li>
+        <li><a href="#privacy-finalidades">Para qué usamos tus datos</a></li>
+        <li><a href="#privacy-base">Base legal y consentimiento</a></li>
+        <li><a href="#privacy-whatsapp">Mensajes por WhatsApp</a></li>
+        <li><a href="#privacy-terceros">Proveedores y transferencias</a></li>
+        <li><a href="#privacy-conservacion">Tiempo de conservación</a></li>
+        <li><a href="#privacy-seguridad">Seguridad</a></li>
+        <li><a href="#privacy-derechos">Tus derechos</a></li>
+        <li><a href="#privacy-menores">Menores de edad</a></li>
+        <li><a href="#privacy-cookies">Cookies</a></li>
+        <li><a href="#privacy-cambios">Cambios a esta política</a></li>
+      </ol>
+    </nav>
+
+    <div class="privacy-section" id="privacy-responsable">
+      <h2>1. Responsable del tratamiento</h2>
+      <div class="privacy-responsible">
+        <p><strong>Razón social:</strong> Cala Negocios e Inversiones SAC</p>
+        <p><strong>RUC:</strong> 20611621133</p>
+        <p><strong>Domicilio fiscal:</strong> Jirón Monterey 389, Santiago de Surco, Lima, Perú.</p>
+        <p><strong>Correo para temas de privacidad:</strong> <a href="mailto:contacto@calanegocios.com">contacto@calanegocios.com</a></p>
+        <p><strong>Teléfono / WhatsApp:</strong> +51 981 700 255</p>
+      </div>
+      <p>Nuestros datos personales se almacenan en bancos de datos de titularidad de Cala Negocios e Inversiones SAC.</p>
+    </div>
+
+    <div class="privacy-section" id="privacy-datos">
+      <h2>2. Datos que recopilamos</h2>
+      <table class="privacy-data">
+        <thead><tr><th scope="col">Dónde</th><th scope="col">Qué datos</th></tr></thead>
+        <tbody>
+          <tr><td>Formulario de contacto</td><td>Nombre, correo electrónico, contenido del mensaje, fecha y hora, dirección IP y tipo de navegador (para prevenir spam).</td></tr>
+          <tr><td>Tarjeta digital de fidelización</td><td>Nombre, número de celular, correo electrónico y fecha de nacimiento (si los proporcionas), local de registro, historial de visitas, sellos acumulados, canjes y nivel de tarjeta.</td></tr>
+          <tr><td>WhatsApp</td><td>Número de celular y registro de los mensajes de servicio enviados.</td></tr>
+        </tbody>
+      </table>
+      <p>No recopilamos datos sensibles ni datos de tarjetas de pago a través de este sitio ni de la tarjeta digital.</p>
+    </div>
+
+    <div class="privacy-section" id="privacy-finalidades">
+      <h2>3. Para qué usamos tus datos</h2>
+      <ul>
+        <li>Responder a los mensajes y consultas que nos envías.</li>
+        <li>Crear y administrar tu tarjeta digital en Apple Wallet o Google Wallet, registrar tus compras y sellos, y gestionar canjes y cambios de nivel.</li>
+        <li>Enviarte mensajes de servicio por WhatsApp relacionados con tu tarjeta (bienvenida, sellos acumulados, canje disponible, regalo de cumpleaños y recordatorios de visita).</li>
+        <li>Prevenir fraude, uso indebido del programa y envíos automatizados (spam).</li>
+        <li>Elaborar estadísticas internas y agregadas sobre recurrencia de clientes para mejorar nuestro servicio.</li>
+      </ul>
+      <p>No vendemos ni alquilamos tus datos personales a terceros.</p>
+    </div>
+
+    <div class="privacy-section" id="privacy-base">
+      <h2>4. Base legal y consentimiento</h2>
+      <p>Tratamos tus datos con tu <strong>consentimiento libre, previo, expreso, informado e inequívoco</strong>, que otorgas al marcar la casilla de aceptación en el formulario de contacto o al registrar tu tarjeta digital. Puedes revocar tu consentimiento en cualquier momento escribiendo a <a href="mailto:contacto@calanegocios.com">contacto@calanegocios.com</a>; la revocación no afecta los tratamientos realizados antes de ella.</p>
+    </div>
+
+    <div class="privacy-section" id="privacy-whatsapp">
+      <h2>5. Mensajes por WhatsApp</h2>
+      <p>Al registrar tu tarjeta aceptas recibir mensajes de servicio desde el número oficial de Grupo CALA. Puedes dejar de recibirlos en cualquier momento respondiendo <strong>"BAJA"</strong> al mensaje o escribiéndonos al correo indicado. Dejar de recibir mensajes no elimina tu tarjeta ni tus sellos.</p>
+    </div>
+
+    <div class="privacy-section" id="privacy-terceros">
+      <h2>6. Proveedores y transferencias de datos</h2>
+      <p>Para operar el sitio y el programa de fidelización usamos proveedores tecnológicos que tratan datos por encargo nuestro y bajo nuestras instrucciones:</p>
+      <ul>
+        <li><strong>Apple Inc. y Google LLC:</strong> almacenamiento de la tarjeta en Apple Wallet y Google Wallet.</li>
+        <li><strong>Meta Platforms (WhatsApp Business):</strong> envío de mensajes de servicio.</li>
+        <li><strong>Supabase:</strong> base de datos.</li>
+        <li><strong>Vercel:</strong> alojamiento del sitio web.</li>
+        <li><strong>Resend:</strong> envío de correos electrónicos.</li>
+      </ul>
+      <p>Algunos de estos proveedores se ubican fuera del Perú, por lo que se produce un flujo transfronterizo de datos. Solo trabajamos con proveedores que ofrecen niveles adecuados de protección. Tus datos también podrán ser comunicados a autoridades cuando una norma o una orden judicial lo exija.</p>
+    </div>
+
+    <div class="privacy-section" id="privacy-conservacion">
+      <h2>7. Tiempo de conservación</h2>
+      <ul>
+        <li><strong>Mensajes de contacto:</strong> hasta 12 meses después de atendida la consulta.</li>
+        <li><strong>Datos de la tarjeta digital:</strong> mientras tu tarjeta esté activa y hasta 24 meses desde tu última visita, salvo que antes solicites su eliminación.</li>
+      </ul>
+      <p>Cumplidos estos plazos, eliminamos o anonimizamos los datos, salvo que debamos conservarlos por obligación legal.</p>
+    </div>
+
+    <div class="privacy-section" id="privacy-seguridad">
+      <h2>8. Seguridad</h2>
+      <p>Aplicamos medidas técnicas y organizativas para proteger tus datos: conexiones cifradas (HTTPS), acceso restringido a la base de datos solo para personal autorizado y almacenamiento de credenciales fuera del código público. Si ocurriera un incidente de seguridad que pueda afectarte, te informaremos y lo comunicaremos a la Autoridad Nacional de Protección de Datos Personales en los plazos que establece la normativa.</p>
+    </div>
+
+    <div class="privacy-section" id="privacy-derechos">
+      <h2>9. Tus derechos</h2>
+      <p>Puedes ejercer en cualquier momento tus derechos de <strong>acceso, rectificación, cancelación (eliminación), oposición</strong> y <strong>portabilidad</strong>, así como revocar tu consentimiento. Para hacerlo:</p>
+      <ul>
+        <li>Escribe a <a href="mailto:contacto@calanegocios.com">contacto@calanegocios.com</a> con el asunto "Protección de datos".</li>
+        <li>Indica tu nombre, el número de celular o correo con el que te registraste y el derecho que deseas ejercer.</li>
+        <li>Podremos pedirte información adicional para verificar tu identidad.</li>
+      </ul>
+      <p>Responderemos dentro de los plazos establecidos por la Ley N.° 29733 y su Reglamento. Si consideras que no hemos atendido tu solicitud adecuadamente, puedes presentar un reclamo ante la <strong>Autoridad Nacional de Protección de Datos Personales</strong> del Ministerio de Justicia y Derechos Humanos.</p>
+    </div>
+
+    <div class="privacy-section" id="privacy-menores">
+      <h2>10. Menores de edad</h2>
+      <p>Nuestros servicios digitales están dirigidos a mayores de 18 años. Si eres menor de edad, debes contar con la autorización de tu padre, madre o tutor para registrarte. Si detectamos datos de un menor sin dicha autorización, los eliminaremos.</p>
+    </div>
+
+    <div class="privacy-section" id="privacy-cookies">
+      <h2>11. Cookies</h2>
+      <p>Este sitio no utiliza cookies de publicidad ni de seguimiento. Guardamos tu elección sobre cookies opcionales en el almacenamiento local de tu navegador para no volver a mostrar el aviso. Cargamos tipografías desde Google Fonts, servicio que puede registrar datos técnicos de tu conexión, como la dirección IP. Si en el futuro incorporamos herramientas de analítica, actualizaremos esta política.</p>
+    </div>
+
+    <div class="privacy-section" id="privacy-cambios">
+      <h2>12. Cambios a esta política</h2>
+      <p>Podemos actualizar esta política para reflejar cambios legales o en nuestros servicios. Publicaremos la nueva versión en esta página con su fecha de actualización y, si el cambio es relevante, te lo comunicaremos por los medios que tengamos registrados.</p>
+    </div>
+  </main>
+
+  <footer class="privacy-footer">© 2026 Cala Negocios e Inversiones SAC · RUC 20611621133 · Lima, Perú</footer>
+</div>
 
 <div class="offline-screen" id="offlineScreen" role="alertdialog" aria-modal="true" aria-labelledby="offlineTitle" aria-describedby="offlineDescription">
   <div class="offline-card">
@@ -711,12 +989,14 @@
   }
 
   const walletTabs = document.querySelectorAll('.wallet-tab');
+  const walletPanel = document.querySelector('.wallet-panel');
   walletTabs.forEach(tab=>{
     tab.addEventListener('click',()=>{
       walletTabs.forEach(item=>item.setAttribute('aria-selected', item === tab ? 'true' : 'false'));
       document.querySelectorAll('.wallet-step-panel').forEach(panel=>{
         panel.hidden = panel.id !== tab.getAttribute('aria-controls');
       });
+      walletPanel.classList.toggle('fitelyback-active', tab.id === 'fitelyback-tab');
     });
   });
 
@@ -727,6 +1007,74 @@
       item.classList.toggle('open', willOpen);
       btn.setAttribute('aria-expanded', String(willOpen));
     });
+  });
+
+  const cookieBanner = document.getElementById('cookieBanner');
+  const cookieBannerStatus = document.getElementById('cookieBannerStatus');
+  const cookieConsentKey = 'cala-cookie-consent';
+  let cookieConsentStored = false;
+  const setCookieBannerVisibility = visible=>{
+    cookieBanner.hidden = !visible;
+    cookieBanner.setAttribute('aria-hidden', String(!visible));
+  };
+  try{
+    const savedCookieConsent = localStorage.getItem(cookieConsentKey);
+    cookieConsentStored = savedCookieConsent === 'accepted' || savedCookieConsent === 'rejected';
+    setCookieBannerVisibility(!cookieConsentStored);
+  }catch(error){
+    if(!(error instanceof DOMException)) throw error;
+    cookieBannerStatus.textContent = 'No se pudo consultar la preferencia guardada. Elige una opción para continuar.';
+  }
+  cookieBanner.querySelectorAll('[data-cookie-choice]').forEach(button=>{
+    button.addEventListener('click',()=>{
+      try{
+        localStorage.setItem(cookieConsentKey,button.dataset.cookieChoice);
+        cookieConsentStored = true;
+        cookieBannerStatus.textContent = '';
+        setCookieBannerVisibility(false);
+      }catch(error){
+        if(!(error instanceof DOMException)) throw error;
+        cookieBannerStatus.textContent = 'No se pudo guardar tu elección en este navegador. Intenta nuevamente.';
+      }
+    });
+  });
+
+  const privacyPage = document.getElementById('privacy-page');
+  const openPrivacyPage = ()=>{
+    setCookieBannerVisibility(false);
+    privacyPage.classList.add('open');
+    privacyPage.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+    privacyPage.scrollTop=0;
+    privacyPage.querySelector('[data-close-privacy]').focus();
+  };
+  const closePrivacyPage = ()=>{
+    privacyPage.classList.remove('open');
+    privacyPage.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+    setCookieBannerVisibility(!cookieConsentStored);
+  };
+  document.querySelectorAll('[data-open-privacy]').forEach(link=>{
+    link.addEventListener('click',event=>{
+      event.preventDefault();
+      openPrivacyPage();
+    });
+  });
+  privacyPage.querySelectorAll('[data-close-privacy]').forEach(button=>{
+    button.addEventListener('click',event=>{
+      event.preventDefault();
+      closePrivacyPage();
+    });
+  });
+  privacyPage.querySelectorAll('.privacy-toc a').forEach(link=>{
+    link.addEventListener('click',event=>{
+      event.preventDefault();
+      const section=privacyPage.querySelector(link.getAttribute('href'));
+      section.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  });
+  document.addEventListener('keydown',event=>{
+    if(event.key==='Escape'&&privacyPage.classList.contains('open')) closePrivacyPage();
   });
 
   const offlineScreen = document.getElementById('offlineScreen');
